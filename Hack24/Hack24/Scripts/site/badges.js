@@ -8,7 +8,7 @@
 			if (currentBadges != null) {
 				var newBadges = [];
 				for (var i = 0; i < badges.length; i++) {
-					if ($.inArray(badges[i], currentBadges) > -1) {
+					if ($.inArray(badges[i], currentBadges) == -1) {
 						newBadges.push(badges[i]);
 					}
 				}
