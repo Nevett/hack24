@@ -1,9 +1,13 @@
 ﻿@model Hack24.Models.LoginModel
+@Styles.Render("~/Content/themes/account/login.css")
 
-@using (Html.BeginForm()){
-	@Html.LabelFor(x => x.EmailAddress)
-	@Html.EditorFor(x => x.EmailAddress)
-	@Html.LabelFor(x => x.Password)
-	@Html.EditorFor(x => x.Password)
-	<input type="submit" value="loginplz"/>
-}
+<div class="small-12 medium-6 columns">
+	@using (Html.BeginForm())
+	{
+		@Html.LabelFor(x => x.EmailAddress, "Email Address")
+		@Html.TextBoxFor(x => x.EmailAddress, new { @placeholder = "Email Address" })
+		@Html.LabelFor(x => x.Password, "Password")
+		@Html.PasswordFor(x => x.Password, new { @placeholder = "Password" })
+		<input type="submit" value="Login" class="button" />
+	}
+</div>

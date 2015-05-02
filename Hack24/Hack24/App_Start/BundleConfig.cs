@@ -38,13 +38,10 @@ namespace Hack24
 						"~/Content/themes/base/jquery.ui.tabs.css",
 						"~/Content/themes/base/jquery.ui.datepicker.css",
 						"~/Content/themes/base/jquery.ui.progressbar.css",
-						"~/Content/themes/base/jquery.ui.theme.css"));
+						"~/Content/themes/base/jquery.ui.theme.css",
+						"~/Content/themes/base/base.css"));
 
 			bundles.Add(new ScriptBundle("~/bundles/questions").Include("~/Scripts/questions/*.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/foundation").Include("~/Scripts/foundation.min.js"));
-
-            bundles.Add(new StyleBundle("~/bundles/foundation").Include("~/Content/themes/foundation/foundation.min.css"));
 		}
 	}
 }
