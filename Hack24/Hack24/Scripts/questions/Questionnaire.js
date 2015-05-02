@@ -18,6 +18,8 @@ $(function () {
 
 		questionDiv.append($answersDiv);
 
+		question.Answers.sort(function() { return Math.random() >= 0.5; });
+
 		$.each(question.Answers, function() {
 			var answer = this;
 			var answerDiv = $("<div class='answer'></div>").data('id', answer.Id).on('click', submitAnswer);
