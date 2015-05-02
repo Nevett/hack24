@@ -1,83 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Hack24.Core.Entities;
 using Hack24.Core.Enums;
 using Hack24.Core.Repositories;
+using Hack24.Core.Service;
 
 namespace Hack24.Controllers
 {
 	public class QuestionnaireController: Controller
 	{
 		private readonly IQuestionRepository _questionRepository;
+		private readonly User currentUser;
+		private readonly ICompletedAnswerService completedAnswerService;
 
-		public QuestionnaireController(IQuestionRepository questionRepository)
+		public QuestionnaireController(IQuestionRepository questionRepository, User currentUser, ICompletedAnswerService completedAnswerService)
 		{
 			_questionRepository = questionRepository;
-		}
-		
-		public ViewResult Index()
-		{
-			var questions = _questionRepository.ForQuiz();
-
-			return this.View(questions);
+			this.currentUser = currentUser;
+			this.completedAnswerService = completedAnswerService;
 		}
 
-		public ViewResult Question()
+		public ActionResult Index()
 		{
-			//var questions = this._questionRepository.ForQuiz();
+			return this.View();
+		}
 
+		public ActionResult Question(Guid? lastQuestionId, Guid? lastAnswerId)
+		{
+			if (lastAnswerId.HasValue && lastAnswerId.HasValue)
+				completedAnswerService.RecordAnswer(lastQuestionId.Value, lastAnswerId.Value, currentUser);
 
-			var question = new Question
-			{
-				Text = "Which buffy character is the coolest",
-				ImageUrl = "http://www.thetvcritic.org/assets/Buffy/_resampled/resizedimage600298-Standard-Image-Size-Buffy.jpg",
-				Answers = new List<Answer>
-				{
-					new Answer
+			var question = _questionRepository.GetForUser(currentUser.Id);
+			return Json(new 
+			{ 
+				question.Id, 
+				question.Text, 
+				question.ImageUrl, 
+				Answers = question.Answers.Select(a => new
 					{
-						Text = "Zander",
-						ImageUrl = "http://upload.wikimedia.org/wikipedia/en/0/0f/S721_Xander.png",
-						MetricModifiers = new Dictionary<Metric, int>
-						{
-							{Metric.Influcence, 5},
-							{Metric.Leadership, 2}
-						}
-					},
-					new Answer
-					{
-						Text = "Willow",
-						ImageUrl = "http://upload.wikimedia.org/wikipedia/en/6/6d/WillowRosenberg.jpg",
-						MetricModifiers = new Dictionary<Metric, int>
-						{
-							{Metric.Influcence, 0},
-							{Metric.Leadership, 3}
-						}
-					},
-					new Answer
-					{
-						Text = "Giles",
-						ImageUrl = "http://vignette1.wikia.nocookie.net/buffy/images/a/a5/Buffy_-_Im_Bann_de_D%C3%A4monen_(7).jpg/revision/latest?cb=20110703171655&path-prefix=de",
-						MetricModifiers = new Dictionary<Metric, int>
-						{
-							{Metric.Influcence, 2},
-							{Metric.Leadership, 4}
-						}
-					},
-					new Answer
-					{
-						Text = "Spike",
-						ImageUrl = "http://upload.wikimedia.org/wikipedia/en/0/00/S203_Spike.jpg",
-						MetricModifiers = new Dictionary<Metric, int>
-						{
-							{Metric.Influcence, 4},
-							{Metric.Leadership, 2}
-						}
-					}
-				}
-			};
-
-			return View(question);
+					a.Id,
+					a.ImageUrl,
+					a.Text
+					})
+			}, JsonRequestBehavior.AllowGet);
 		}
 	}
 }

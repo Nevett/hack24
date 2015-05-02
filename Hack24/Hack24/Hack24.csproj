@@ -146,6 +146,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\Questions\Abe_simpson.jpg" />
+    <Content Include="Assets\Images\Questions\Absolutely_nothing.jpg" />
+    <Content Include="Assets\Images\Questions\Batman-Cat.jpg" />
+    <Content Include="Assets\Images\Questions\burns.jpg" />
+    <Content Include="Assets\Images\Questions\businessKitty.jpg" />
+    <Content Include="Assets\Images\Questions\CrazyKitty.jpg" />
+    <Content Include="Assets\Images\Questions\enron1.jpg" />
+    <Content Include="Assets\Images\Questions\homer.jpg" />
+    <Content Include="Assets\Images\Questions\Kitler.jpg" />
+    <Content Include="Assets\Images\Questions\Money.jpg" />
+    <Content Include="Assets\Images\Questions\nedflanders.jpg" />
+    <Content Include="Assets\Images\Questions\Nuke.jpg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

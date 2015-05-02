@@ -8,7 +8,7 @@ namespace Hack24.Core.Repositories
 	{
 		IEnumerable<Question> All();
 		void Store(Question question);
-		IEnumerable<Question> ForQuiz();
 		Question Get(Guid questionId);
+		Question GetForUser(Guid userId);
 	}
 }
