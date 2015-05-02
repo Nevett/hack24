@@ -5,10 +5,8 @@ namespace Hack24.Core.Repositories
 {
 	public abstract class RavenRepository
 	{
-		protected IDocumentStore DocStore;
-
-	
-
+		protected readonly IDocumentStore DocStore;
+		
 		protected RavenRepository()
 		{
 			this.DocStore = new DocumentStore
@@ -17,7 +15,5 @@ namespace Hack24.Core.Repositories
 				DefaultDatabase = "Hack24"
 			}.Initialize();
 		}
-
-
 	}
 }
