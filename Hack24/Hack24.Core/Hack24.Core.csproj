@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\..\lib\Raven\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\..\lib\Raven\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +52,7 @@
     <Compile Include="Repositories\AnswerRepository.cs" />
     <Compile Include="Repositories\IQuestionRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\RavenRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
