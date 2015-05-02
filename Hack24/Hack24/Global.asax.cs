@@ -8,7 +8,9 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
+using Hack24.Core;
 using Hack24.Core.Entities;
+using Hack24.Core.Entities.Raven;
 using Hack24.Core.Repositories;
 using Hack24.Infrastructure;
 using NanoIoC;
@@ -32,6 +34,8 @@ namespace Hack24
 			//Container.Global.RunAllRegistries();
 			Container.Global.RunAllTypeProcessors();
 			ControllerBuilder.Current.SetControllerFactory(Container.Global.Resolve<IoCControllerFactory>());
+
+			new RavenBootStrap().Setup();
 		}
 	}
 
