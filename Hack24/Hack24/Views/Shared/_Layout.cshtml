@@ -11,9 +11,9 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/base")
     @Styles.Render("~/Content/themes/foundation/foundation.css")
-    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/Scripts/foundation.min.js")
+	<meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, minimum-scale=1">
 </head>
 <body>
 	<div class="row">
@@ -25,7 +25,7 @@
 			}
 			else
 			{
-				<span class="login-status">Hi, @user.Forename</span>
+				<span class="login-status">Hi, <strong>@user.Forename</strong></span>
 				
 				<a href="/account/logout" class="tiny button">Log out</a>
 				<a href="/leaderboard" class="tiny button">Leader Board</a>
@@ -33,6 +33,9 @@
 			}
 		</header>
 		@RenderBody()
+		<footer>
+			<span>A Team Bum Production</span>
+		</footer>
 	</div>
 
 	@RenderSection("scripts", required: false)

@@ -36,6 +36,9 @@
     <Reference Include="ICSharpCode.NRefactory.CSharp">
       <HintPath>..\..\lib\Raven\ICSharpCode.NRefactory.CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="NanoIoC">
+      <HintPath>..\..\lib\NanoIoC\bin-net40\NanoIoC.dll</HintPath>
+    </Reference>
     <Reference Include="Raven.Abstractions">
       <HintPath>..\..\lib\Raven\Raven.Abstractions.dll</HintPath>
     </Reference>
@@ -51,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Badges\IBadge.cs" />
+    <Compile Include="Badges\FirstAnswerBadge.cs" />
+    <Compile Include="Badges\TenAnswersBadge.cs" />
+    <Compile Include="DefaultTypeProcessor.cs" />
     <Compile Include="Entities\Answer.cs" />
     <Compile Include="Entities\AnswerMetric.cs" />
     <Compile Include="Entities\CompletedAnswer.cs" />
@@ -59,6 +66,7 @@
     <Compile Include="Entities\Raven\ManagerMetricAverageIndex.cs" />
     <Compile Include="Entities\ScoreBoardRow.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserProfileReport.cs" />
     <Compile Include="Enums\Metric.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Helpers\GuidHelper.cs" />
@@ -73,6 +81,7 @@
     <Compile Include="Repositories\RavenRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Service\BadgeService.cs" />
     <Compile Include="Service\CompletedAnswerService.cs" />
     <Compile Include="Service\ICompletedAnswerService.cs" />
     <Compile Include="Service\IReportService.cs" />

@@ -19,17 +19,17 @@ namespace Hack24.Core.Repositories
 			}
 		}
 
-		public List<ManagerMetricAverageIndex.ManagerMetricAverage> GetMetricAverages(Guid userId)
+		public IEnumerable<ManagerMetricAverageIndex.ManagerMetricAverage> GetMetricAverages(Guid userId)
 		{
 			using (IDocumentSession session = this.DocStore.OpenSession())
 			{
 				return session.Query<ManagerMetricAverageIndex.ManagerMetricAverage>()
 					.Where(x => x.ManagerId == userId)
-					.ToList();
+					.ToList(); ;
 			}
 		}
 
-		public List<ManagerTotalIndex.ManagerTotal> GetTotal(Guid userId)
+		public IEnumerable<ManagerTotalIndex.ManagerTotal> GetTotal(Guid userId)
 		{
 			using (IDocumentSession session = this.DocStore.OpenSession())
 			{
@@ -39,15 +39,21 @@ namespace Hack24.Core.Repositories
 			}
 		}
 
-		public List<ManagerTotalIndex.ManagerTotal> GetLeaderboard()
+		public IEnumerable<ManagerTotalIndex.ManagerTotal> GetLeaderboard()
 		{
 			using (IDocumentSession session = this.DocStore.OpenSession())
 			{
-				return session.Query<ManagerTotalIndex.ManagerTotal>()
-					.OrderByDescending(x=>x.Score)
+				return session.Query<ManagerTotalIndex.ManagerTotal>("ManagerTotalIndex")
+					.OrderByDescending(x => x.Score)
 					.ToList();
+			}
+		}
 
-
+		public IEnumerable<AnswerMetric> All()
+		{
+			using (IDocumentSession session = this.DocStore.OpenSession())
+			{
+				return session.Query<AnswerMetric>().ToList();
 			}
 		}
 	}

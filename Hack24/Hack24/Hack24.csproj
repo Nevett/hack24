@@ -131,6 +131,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Assets\Images\noise.png" />
     <Content Include="Content\themes\account\login.css" />
     <Compile Include="Controllers\CompletedAnswerController.cs" />
     <Compile Include="Controllers\QuestionnaireController.cs" />
@@ -252,6 +253,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Questionnaire\Index.cshtml" />
     <Content Include="Views\Leaderboard\Index.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

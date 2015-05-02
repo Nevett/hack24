@@ -18,7 +18,7 @@
 @foreach (var row in Model.Leaderboard)
 {
 	<tr>
-		<td>@row.Name</td>
+		<td><a href="/account/profile/@row.Id">@row.Name</a></td>
 		<td>@row.Score</td>
 	</tr>
 }

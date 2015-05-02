@@ -8,8 +8,9 @@ namespace Hack24.Core.Repositories
 	public interface ICompletedAnswerMetricRepository
 	{
 		void Store(AnswerMetric metric);
-		List<ManagerMetricAverageIndex.ManagerMetricAverage> GetMetricAverages(Guid userId);
-		List<ManagerTotalIndex.ManagerTotal> GetTotal(Guid userId);
-		List<ManagerTotalIndex.ManagerTotal> GetLeaderboard();
+		IEnumerable<ManagerMetricAverageIndex.ManagerMetricAverage> GetMetricAverages(Guid userId);
+		IEnumerable<ManagerTotalIndex.ManagerTotal> GetTotal(Guid userId);
+		IEnumerable<ManagerTotalIndex.ManagerTotal> GetLeaderboard();
+		IEnumerable<AnswerMetric> All();
 	}
 }

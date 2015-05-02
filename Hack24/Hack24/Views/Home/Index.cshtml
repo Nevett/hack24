@@ -2,7 +2,7 @@
 @model dynamic
 
 @{
-	ViewBag.Title = "title";
+	ViewBag.Title = "Popup Pi-Rate";
 	var user = this.User();
 }
 
@@ -12,19 +12,19 @@
 }
 else
 {
-	if (user.Manager == null && !user.TeamMembers.Any())
+	if (user.ManagerId == Guid.Empty && !user.TeamMemberIds.Any())
 	{
 		// no manager and no team members - weird, error.
 		<h1>You aren't a manager, and have no managers. Why are you here?!</h1>
 	}
-	else if (user.Manager == null)
+	else if (user.ManagerId == Guid.Empty)
 	{
 		// add way to nag employees?
 		<h1>Your employees should rate you. Go nag them.</h1>
 	}
 	else
 	{
-		<h1>Go rate your manager @user.Manager.Forename <a href="/questionnaire">here</a>.</h1>
-		<img src="http://inwallspeakers1.com/wp-content/uploads/2014/07/happy-computer-user.jpg" />
+		<h1>Go rate your manager @user.ManagerId!</h1>
+		<a class="rate button large" href="/questionnaire">Rate</a>
 	}
 }

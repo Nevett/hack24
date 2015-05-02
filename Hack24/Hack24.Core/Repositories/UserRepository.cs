@@ -4,10 +4,11 @@ using System.Linq;
 using System.Reflection;
 using Hack24.Core.Entities;
 using Hack24.Core.Helpers;
+using Raven.Client;
 
 namespace Hack24.Core.Repositories
 {
-	public class UserRepository : IUserRepository
+	public class UserRepository : RavenRepository, IUserRepository
 	{
 		private static User[] hardcodedUsers;
 		public UserRepository()
@@ -86,18 +87,35 @@ namespace Hack24.Core.Repositories
 
 		private static void Assign(User manager, User subordinate)
 		{
-			subordinate.Manager = manager;
-			manager.TeamMembers.Add(subordinate);
+			subordinate.ManagerId = manager.Id;
+			manager.TeamMemberIds.Add(subordinate.Id);
 		}
 
 		public User Get(Guid id)
 		{
-			return hardcodedUsers.SingleOrDefault(x => x.Id == id);
+			using (IDocumentSession session = this.DocStore.OpenSession())
+			{
+				return session.Load<User>(id) ?? hardcodedUsers.SingleOrDefault(x => x.Id == id);
+			}
 		}
 
 		public IEnumerable<User> All()
 		{
-			return hardcodedUsers.ToArray();
+			using (IDocumentSession session = this.DocStore.OpenSession())
+			{
+				var dbUsers = session.Query<User>().ToList();
+				dbUsers.AddRange(hardcodedUsers.Where(u => !dbUsers.Select(z => z.Id).Contains(u.Id)));
+				return dbUsers;
+			}
+		}
+
+		public void Store(User user)
+		{
+			using (IDocumentSession session = this.DocStore.OpenSession())
+			{
+				session.Store(user);
+				session.SaveChanges();
+			}
 		}
 	}
 }

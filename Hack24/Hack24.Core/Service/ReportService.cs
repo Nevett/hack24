@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Hack24.Core.Entities;
 using Hack24.Core.Repositories;
@@ -8,19 +9,19 @@ namespace Hack24.Core.Service
 {
 	public class ReportService : IReportService
 	{
-		private readonly ICompletedAnswerMetricRepository _answerMetricRepository;
-		private readonly IUserRepository _userRepository;
+		private readonly ICompletedAnswerMetricRepository answerMetricRepository;
+		private readonly IUserRepository userRepository;
 
 		public ReportService(ICompletedAnswerMetricRepository answerMetricRepository, IUserRepository userRepository)
 		{
-			_answerMetricRepository = answerMetricRepository;
-			_userRepository = userRepository;
+			this.answerMetricRepository = answerMetricRepository;
+			this.userRepository = userRepository;
 		}
 
 		public IEnumerable<ScoreBoardRow> Leaderboard()
 		{
-			var totalScores = this._answerMetricRepository.GetLeaderboard();
-			var managers = this._userRepository.All().Where(x => x.TeamMembers.Any());
+			var totalScores = this.answerMetricRepository.GetLeaderboard();
+			var managers = this.userRepository.All().Where(x => x.TeamMemberIds.Any());
 
 			var scoreboard = new List<ScoreBoardRow>();
 
@@ -38,11 +39,20 @@ namespace Hack24.Core.Service
 
 			return scoreboard;
 		}
-		public void ManagerReport(Guid userId)
-		{
-			var metricAverage = this._answerMetricRepository.GetMetricAverages(userId);
 
-			var totalScore = this._answerMetricRepository.GetTotal(userId);
+		public UserProfileReport ManagerReport(Guid userId)
+		{
+			var user = this.userRepository.Get(userId);
+			var metricAverage = this.answerMetricRepository.GetMetricAverages(userId);
+
+			var totalScore = this.answerMetricRepository.GetTotal(userId);
+
+			return new UserProfileReport
+			{
+				User = user,
+				TotalScore = totalScore,
+				Metrics = metricAverage,
+			};
 
 		}
 	}
