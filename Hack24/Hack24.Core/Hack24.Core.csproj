@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3C2BA340-07BF-4AA4-9100-A70CA82DE603}</ProjectGuid>
+    <ProjectGuid>{DB4ED457-505A-4F0B-ABA9-17417EB5450F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Hack24.Core</RootNamespace>
