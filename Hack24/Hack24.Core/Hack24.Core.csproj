@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>..\..\lib\Raven\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory.CSharp">
+      <HintPath>..\..\lib\Raven\ICSharpCode.NRefactory.CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Raven.Abstractions">
       <HintPath>..\..\lib\Raven\Raven.Abstractions.dll</HintPath>
     </Reference>
@@ -46,19 +52,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Answer.cs" />
+    <Compile Include="Entities\AnswerMetric.cs" />
     <Compile Include="Entities\CompletedAnswer.cs" />
+    <Compile Include="Entities\Raven\ManagerMetricAverage.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enums\Metric.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Helpers\GuidHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RavenBootStrap.cs" />
+    <Compile Include="Raven\Indexes\ManagerMetricAverageIndex.cs" />
+    <Compile Include="Repositories\CompletedAnswerMetricRepository.cs" />
     <Compile Include="Repositories\CompletedAnswerRepository.cs" />
+    <Compile Include="Repositories\ICompletedAnswerMetricRepository.cs" />
     <Compile Include="Repositories\ICompletedAnswerRepository.cs" />
     <Compile Include="Repositories\IQuestionRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\RavenRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Service\CompletedAnswerService.cs" />
+    <Compile Include="Service\ICompletedAnswerService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Indexes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

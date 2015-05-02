@@ -5,7 +5,7 @@ namespace Hack24.Core.Repositories
 {
 	public abstract class RavenRepository
 	{
-		protected readonly IDocumentStore DocStore;
+		public readonly IDocumentStore DocStore;
 		
 		protected RavenRepository()
 		{

@@ -11,5 +11,10 @@ namespace Hack24.Core.Entities
 		public Guid QuestionId { get; set; }
 		public Guid AnswerId { get; set; }
 		public IDictionary<Metric, int> MetricModifiers { get; set; }
+
+		public CompletedAnswer()
+		{
+		 this.MetricModifiers = new Dictionary<Metric, int>();
+		}
 	}
 }
