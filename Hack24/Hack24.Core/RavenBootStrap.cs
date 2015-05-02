@@ -9,6 +9,7 @@ namespace Hack24.Core
 		{
 
 			new ManagerMetricAverageIndexCreation().Execute(this.DocStore);
+			new ManagerMetricTotalIndexCreation().Execute(this.DocStore);
 		}
 	}
 }

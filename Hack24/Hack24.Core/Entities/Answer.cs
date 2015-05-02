@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Hack24.Core.Enums;
-using Raven.Imports.Newtonsoft.Json;
 
 namespace Hack24.Core.Entities
 {

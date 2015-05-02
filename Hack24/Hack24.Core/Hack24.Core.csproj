@@ -54,6 +54,7 @@
     <Compile Include="Entities\Answer.cs" />
     <Compile Include="Entities\AnswerMetric.cs" />
     <Compile Include="Entities\CompletedAnswer.cs" />
+    <Compile Include="Entities\Raven\ManagerMetricTotalIndexCreation.cs" />
     <Compile Include="Entities\Raven\ManagerMetricAverageIndexCreation.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enums\Metric.cs" />
