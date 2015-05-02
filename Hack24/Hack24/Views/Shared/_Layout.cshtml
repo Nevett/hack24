@@ -21,12 +21,12 @@
 			@if (user == null)
 			{
 				<span class="login-status">You're not logged in</span>
-				<a href="/account/login">Log in</a>
+				<a href="/account/login" class="tiny button">Log in</a>
 			}
 			else
 			{
 				<span class="login-status">Hi, @user.Forename</span>
-				<a href="/account/logout">Log out</a>
+				<a href="/account/logout" class="tiny button">Log out</a>
 			}
 
 		</header>
