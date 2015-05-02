@@ -16,9 +16,27 @@ namespace Hack24.Core.Repositories
 			}
 		}
 
-		public IEnumerable<Question> ForQuiz()
+		public Question GetForUser(Guid userId)
 		{
-			return this.All().OrderBy(x => Guid.NewGuid()).Take(5);
+			using (IDocumentSession session = this.DocStore.OpenSession())
+			{
+				var questionIds = session.Query<Question>().ToList().Select(x => x.Id);
+				var answeredIds =
+					session.Query<AnswerMetric>().ToList()
+						.GroupBy(x => x.QuestionId)
+						.Where(x => x.Any(z => z.UserId == userId))
+						.Select(x => x.Key);
+
+				var unansweredIds = questionIds.Except(answeredIds).ToList();
+
+				if (!unansweredIds.Any())
+					return null;
+
+				var rand = new Random();
+				var id = unansweredIds.ElementAt(rand.Next(0, unansweredIds.Count() - 1));
+
+				return session.Load<Question>(id);
+			}
 		}
 
 		public Question Get(Guid questionId)
