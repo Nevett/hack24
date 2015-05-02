@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Hack24.Core.Entities;
 using Hack24.Core.Enums;
@@ -32,7 +33,18 @@ namespace Hack24.Controllers
 				completedAnswerService.RecordAnswer(lastQuestionId.Value, lastAnswerId.Value, currentUser);
 
 			var question = _questionRepository.GetForUser(currentUser.Id);
-			return Json(question, JsonRequestBehavior.AllowGet);
+			return Json(new 
+			{ 
+				question.Id, 
+				question.Text, 
+				question.ImageUrl, 
+				Answers = question.Answers.Select(a => new
+					{
+					a.Id,
+					a.ImageUrl,
+					a.Text
+					})
+			}, JsonRequestBehavior.AllowGet);
 		}
 	}
 }
