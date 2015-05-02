@@ -29,7 +29,7 @@ namespace Hack24.Controllers
 					new Answer
 					{
 						Text = "Willow",
-						ImageUrl = "http://upload.wikimedia.org/wikipedia/en/0/0f/S721_Xander.png",
+						ImageUrl = "http://upload.wikimedia.org/wikipedia/en/6/6d/WillowRosenberg.jpg",
 						MetricModifiers = new Dictionary<Metric, int>
 						{
 							{Metric.Influcence, 0},
@@ -39,7 +39,7 @@ namespace Hack24.Controllers
 					new Answer
 					{
 						Text = "Giles",
-						ImageUrl = "http://upload.wikimedia.org/wikipedia/en/0/0f/S721_Xander.png",
+						ImageUrl = "http://vignette1.wikia.nocookie.net/buffy/images/a/a5/Buffy_-_Im_Bann_de_D%C3%A4monen_(7).jpg/revision/latest?cb=20110703171655&path-prefix=de",
 						MetricModifiers = new Dictionary<Metric, int>
 						{
 							{Metric.Influcence, 2},
@@ -49,7 +49,7 @@ namespace Hack24.Controllers
 					new Answer
 					{
 						Text = "Spike",
-						ImageUrl = "http://upload.wikimedia.org/wikipedia/en/0/0f/S721_Xander.png",
+						ImageUrl = "http://upload.wikimedia.org/wikipedia/en/0/00/S203_Spike.jpg",
 						MetricModifiers = new Dictionary<Metric, int>
 						{
 							{Metric.Influcence, 4},
@@ -59,7 +59,7 @@ namespace Hack24.Controllers
 				}
 			};
 
-			return View();
+			return View(question);
 		}
 	}
 }
