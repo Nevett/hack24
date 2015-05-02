@@ -12,6 +12,7 @@ $(function () {
 
 		currentQuestionId = question.Id;
 		var questionDiv = $("<div class='question'></div>");
+		questionDiv.append($("<div class='question-text'></div>").text(question.Text));
 		$.each(question.Answers, function() {
 			var answer = this;
 			questionDiv.append($("<div class='answer'></div>").text(answer.Text).data('id', answer.Id).on('click', submitAnswer));
