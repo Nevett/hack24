@@ -32,6 +32,8 @@ $(function () {
 		});
 
 		questionContainer.append(questionDiv);
+
+		windowResize();
 	}
 
 	var submitAnswer = function() {
@@ -41,7 +43,9 @@ $(function () {
 
 	$.ajax("/questionnaire/question").done(populateQuestion);
 
-	$(window).resize(function () {
-		$(".answer").height($(".answer").width() + 60);
-	});
+	var windowResize = function () {
+		$(".answer").height($(".answer").width() + 40);
+	}
+
+	$(window).resize(windowResize);
 });

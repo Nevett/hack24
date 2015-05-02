@@ -2,7 +2,7 @@
 @model dynamic
 
 @{
-	ViewBag.Title = "title";
+	ViewBag.Title = "Popup Pi-Rate";
 	var user = this.User();
 }
 
@@ -24,6 +24,7 @@ else
 	}
 	else
 	{
-		<h1>Go rate your manager @user.ManagerId <a href="/questionnaire">here</a>.</h1>
+		<h1>Go rate your manager @user.ManagerId!</h1>
+		<a class="rate button large" href="/questionnaire">Rate</a>
 	}
 }
