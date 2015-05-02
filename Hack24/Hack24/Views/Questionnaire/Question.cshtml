@@ -1,11 +1,12 @@
 ﻿@inherits WebViewPage<Hack24.Core.Entities.Question>
 @Styles.Render("~/bundles/questions")
-@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/base")
+@Scripts.Render("~/Scripts/amplify.min.js")
 @Scripts.Render("~/bundles/questions")
 
 @Model.Text
 
-<ul>
+<ul data-questionId="@Model.Id">
 	@foreach (var answer in Model.Answers)
 {
 	<li class="answer">
