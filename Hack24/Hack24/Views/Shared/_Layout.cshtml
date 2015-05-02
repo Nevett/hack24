@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using NanoIoC
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,8 +14,26 @@
     @Scripts.Render("~/bundles/foundation")
 </head>
 <body>
-    @RenderBody()
+	<header>
+	@{
+		var user = Container.Global.Resolve<Hack24.Core.Entities.User>();
+			
+	}
 
-    @RenderSection("scripts", required: false)
+	@if (user == null)
+	{
+		<span class="login-status">You're not logged in</span>
+		<a href="/account/login">Log in</a>
+	}
+	else
+	{
+		<span class="login-status">Hi, @user.Forename</span>
+		<a href="/account/logout">Log out</a>
+	}
+
+</header>
+@RenderBody()
+
+@RenderSection("scripts", required: false)
 </body>
 </html>

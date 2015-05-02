@@ -24,8 +24,12 @@ namespace Hack24.Infrastructure
 			if (authCookie != null)
 			{
 				var ticket = FormsAuthentication.Decrypt(authCookie.Value);
-				Container.Global.Inject(Container.Global.Resolve<IUserRepository>().Get(new Guid(ticket.Name)), Lifecycle.HttpContextOrThreadLocal);
-				return;
+				Guid userId;
+				if (Guid.TryParse(ticket.Name, out userId))
+				{
+					Container.Global.Inject(Container.Global.Resolve<IUserRepository>().Get(userId), Lifecycle.HttpContextOrThreadLocal);
+					return;
+				}
 			}
 			Container.Global.Inject<User>(null, Lifecycle.HttpContextOrThreadLocal);
 		}
