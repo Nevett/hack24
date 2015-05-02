@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Answer.cs" />
+    <Compile Include="Enums\Metric.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AnswerRepository.cs" />
