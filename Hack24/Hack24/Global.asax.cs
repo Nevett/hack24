@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -28,13 +29,13 @@ namespace Hack24
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-			Container.Global.RunAllRegistries();
+			//Container.Global.RunAllRegistries();
 			Container.Global.RunAllTypeProcessors();
 			ControllerBuilder.Current.SetControllerFactory(Container.Global.Resolve<IoCControllerFactory>());
 		}
 	}
 
-	sealed class DefaultTypeProcessor : ITypeProcessor
+	internal sealed class DefaultTypeProcessor : ITypeProcessor
 	{
 		public void Process(Type type, IContainer container)
 		{
