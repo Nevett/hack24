@@ -6,14 +6,16 @@
 
 @Model.Text
 
-<ul data-questionId="@Model.Id">
-	@foreach (var answer in Model.Answers)
-{
-	<li class="answer">
-		<div>
-			<span>@answer.Text</span>
-			<img src="@answer.ImageUrl" />
-		</div>
-	</li>
-}
-</ul>
+<div class="row">
+    <ul data-questionId="@Model.Id">
+	    @foreach (var answer in Model.Answers)
+    {
+	    <li class="answer">
+		    <div>
+			    <span>@answer.Text</span>
+			    <img src="@answer.ImageUrl" />
+		    </div>
+	    </li>
+    }
+    </ul>
+</div>
