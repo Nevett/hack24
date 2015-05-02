@@ -10,7 +10,8 @@ namespace Hack24
 		{
 			bundles.Add(new ScriptBundle("~/bundles/base").Include(
 						"~/Scripts/jquery-{version}.js",
-						"~/Scripts/bus.js"));
+						"~/Scripts/bus.js",
+						"~/Scripts/site/*.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
 						"~/Scripts/jquery-ui-{version}.js"));

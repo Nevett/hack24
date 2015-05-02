@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\themes\account\login.css" />
+    <Compile Include="Controllers\BadgesController.cs" />
     <Compile Include="Controllers\CompletedAnswerController.cs" />
     <Compile Include="Controllers\QuestionnaireController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -233,6 +234,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\site\badges.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
