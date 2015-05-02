@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Hack24.Core.Entities;
 using Hack24.Core.Repositories;
+using Hack24.Core.Service;
 using Hack24.Models;
 
 namespace Hack24.Controllers
@@ -12,10 +14,14 @@ namespace Hack24.Controllers
     public class AccountController : Controller
     {
 	    private readonly IUserRepository userRepository;
+	    private readonly BadgeService badgeService;
+	    private readonly User currentUser;
 
-	    public AccountController(IUserRepository userRepository)
+	    public AccountController(IUserRepository userRepository, BadgeService badgeService, User currentUser)
 	    {
 		    this.userRepository = userRepository;
+		    this.badgeService = badgeService;
+		    this.currentUser = currentUser;
 	    }
 
 	    public ActionResult Login()
@@ -43,5 +49,14 @@ namespace Hack24.Controllers
 			FormsAuthentication.SetAuthCookie(string.Empty, true);
 			return Redirect("/");
 		}
+
+	    public ActionResult Profile()
+	    {
+		    return View(new ProfileModel
+		    {
+			    BadgeNames = badgeService.All().ToDictionary(x => x.GetType().FullName, x => x.Name),
+			    Person = currentUser
+		    });
+	    }
     }
 }

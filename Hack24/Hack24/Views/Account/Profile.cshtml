@@ -1,0 +1,18 @@
+﻿@model Hack24.Models.ProfileModel
+
+<h1>@Model.Person.Forename @Model.Person.Surname</h1>
+
+@if (Model.Person.Badges.Any())
+{
+	<p>Badges:</p>
+	<ul>
+		@foreach (var badge in Model.Person.Badges)
+		{
+			<li>@Model.BadgeNames[badge]</li>
+		}
+	</ul>
+}
+else
+{
+	<p>No badges</p>
+}
