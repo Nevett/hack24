@@ -3,15 +3,27 @@
 
 @{
 	ViewBag.Title = "title";
-	var user = Container.Global.Resolve<Hack24.Core.Entities.User>();
+	var user = this.User();
 }
 
 @if (user == null)
 {
-	<h2>You're not logged in</h2>
-	<a href="/account/login">Log in</a>
+	<h1>You need to log in to use this site #obvi</h1>
 }
 else
 {
-	<h2>Hi, @user.Forename</h2>
+	if (user.Manager == null && !user.TeamMembers.Any())
+	{
+		// no manager and no team members - weird, error.
+		<h1>You aren't a manager, and have no managers. Why are you here?!</h1>
+	}
+	else if (user.Manager == null)
+	{
+		// add way to nag employees?
+		<h1>Your employees should rate you. Go nag them.</h1>
+	}
+	else
+	{
+		<h1>Go rate your manager @user.Manager.Forename <a href="/questionnaire/questionnaire">here</a>.</h1>
+	}
 }

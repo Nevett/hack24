@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+	var user = this.User();
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,8 +16,21 @@
     @Scripts.Render("~/bundles/foundation")
 </head>
 <body>
-    @RenderBody()
+	<header>
+	@if (user == null)
+	{
+		<span class="login-status">You're not logged in</span>
+		<a href="/account/login">Log in</a>
+	}
+	else
+	{
+		<span class="login-status">Hi, @user.Forename</span>
+		<a href="/account/logout">Log out</a>
+	}
 
-    @RenderSection("scripts", required: false)
+</header>
+@RenderBody()
+
+@RenderSection("scripts", required: false)
 </body>
 </html>
