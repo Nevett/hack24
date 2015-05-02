@@ -6,6 +6,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Security;
+using Hack24.Core.Entities;
+using Hack24.Core.Repositories;
 using Hack24.Infrastructure;
 using NanoIoC;
 
@@ -24,7 +27,27 @@ namespace Hack24
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+			Container.Global.RunAllRegistries();
+			Container.Global.RunAllTypeProcessors();
 			ControllerBuilder.Current.SetControllerFactory(Container.Global.Resolve<IoCControllerFactory>());
+		}
+	}
+
+	sealed class DefaultTypeProcessor : ITypeProcessor
+	{
+		public void Process(Type type, IContainer container)
+		{
+			if (!type.IsClass || type.IsAbstract || !type.Assembly.FullName.StartsWith("Hack24."))
+				return;
+
+			var interfaces = type.GetInterfaces();
+
+			foreach (var face in interfaces)
+			{
+				if (face.Name == "I" + type.Name)
+					container.Register(face, type, Lifecycle.Singleton);
+			}
 		}
 	}
 }

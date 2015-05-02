@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Hack24.Core.Entities
@@ -12,5 +11,6 @@ namespace Hack24.Core.Entities
 		public string ImageUrl { get; set; }
 
 		public IEnumerable<Answer> Answers { get; set; }
+
 	}
 }

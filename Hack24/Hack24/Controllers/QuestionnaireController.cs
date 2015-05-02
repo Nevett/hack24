@@ -1,13 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using System.Web.Optimization;
 using Hack24.Core.Entities;
 using Hack24.Core.Enums;
+using Hack24.Core.Repositories;
 
 namespace Hack24.Controllers
 {
 	public class QuestionnaireController: Controller
 	{
+		private readonly IQuestionRepository _questionRepository;
+
+		public QuestionnaireController(IQuestionRepository questionRepository)
+		{
+			_questionRepository = questionRepository;
+		}
+		
 		public ViewResult Questionnaire()
 		{
 			var questions = new List<Question>
@@ -115,6 +122,9 @@ namespace Hack24.Controllers
 
 		public ViewResult Question()
 		{
+			//var questions = this._questionRepository.ForQuiz();
+
+
 			var question = new Question
 			{
 				Text = "Which buffy character is the coolest",
