@@ -19,7 +19,7 @@ var questions = [
 				"img": "willow.gif",
 				"stats":
 				{
-					"Gingerness": 50
+					"Gingerness": 50,
 					"Witchcraft": 10,
 					"fighting": -50
 				}
