@@ -2,7 +2,6 @@ $(function () {
 	var questionContainer = $("#question");
 	var currentQuestionId = null;
 	var populateQuestion = function(question) {
-		debugger;
 		questionContainer.empty();
 		if (!question) {
 			currentQuestionId = null;
@@ -12,9 +11,15 @@ $(function () {
 
 		currentQuestionId = question.Id;
 		var questionDiv = $("<div class='question'></div>");
+		questionDiv.append($("<div class='question-text'></div>").text(question.Text));
+		if (question.ImageUrl)
+			questionDiv.append($("<img/>").attr("src", question.ImageUrl));
 		$.each(question.Answers, function() {
 			var answer = this;
-			questionDiv.append($("<div class='answer'></div>").text(answer.Text).data('id', answer.Id).on('click', submitAnswer));
+			var answerDiv = $("<div class='answer'></div>").text(answer.Text).data('id', answer.Id).on('click', submitAnswer);
+			if (answer.ImageUrl)
+				answerDiv.append($("<img/>").attr("src", answer.ImageUrl));
+			questionDiv.append(answerDiv);
 		});
 
 		questionContainer.append(questionDiv);
