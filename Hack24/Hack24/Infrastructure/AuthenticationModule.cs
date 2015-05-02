@@ -23,13 +23,21 @@ namespace Hack24.Infrastructure
 			var authCookie = application.Request.Cookies[FormsAuthentication.FormsCookieName];
 			if (authCookie != null)
 			{
-				var ticket = FormsAuthentication.Decrypt(authCookie.Value);
-				Guid userId;
-				if (Guid.TryParse(ticket.Name, out userId))
-				{
-					Container.Global.Inject(Container.Global.Resolve<IUserRepository>().Get(userId), Lifecycle.HttpContextOrThreadLocal);
-					return;
-				}
+				FormsAuthenticationTicket ticket = null;
+                try
+                {
+                  ticket  = FormsAuthentication.Decrypt(authCookie.Value);
+                }
+                catch{}
+                if (ticket != null)
+                {
+                    Guid userId;
+                    if (Guid.TryParse(ticket.Name, out userId))
+                    {
+                        Container.Global.Inject(Container.Global.Resolve<IUserRepository>().Get(userId), Lifecycle.HttpContextOrThreadLocal);
+                        return;
+                    }
+                }
 			}
 			Container.Global.Inject<User>(null, Lifecycle.HttpContextOrThreadLocal);
 		}

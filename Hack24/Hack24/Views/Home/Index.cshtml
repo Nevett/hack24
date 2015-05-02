@@ -3,4 +3,25 @@
 
 @{
 	ViewBag.Title = "title";
+	var user = this.User();
+}
+
+@if (user == null)
+{
+	<h1>You need to log in to use this site #obvi</h1>
+}
+else
+{
+	if (user.Manager == null && !user.TeamMembers.Any())
+	{
+		<h1>You aren't a manager, and have no managers. Why are you here?!</h1>
+	}
+	else if (user.Manager == null)
+	{
+		<h1>Your employees should rate you. Go nag them.</h1>
+	}
+	else
+	{
+		<h1>GO rate your manager: LINK</h1>
+	}
 }
