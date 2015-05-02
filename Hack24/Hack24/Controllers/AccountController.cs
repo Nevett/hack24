@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Hack24.Core.Repositories;
 using Hack24.Models;
 
@@ -23,14 +24,15 @@ namespace Hack24.Controllers
 	    }
 
 		[HttpPost]
-	    public ActionResult Login(LoginModel model)
+	    public ActionResult Login(LoginModel model, string redirectUrl)
 		{
 			var user = userRepository.All().SingleOrDefault(u => u.EmailAddress == model.EmailAddress);
 			if (user != null)
 			{
 				if (user.Password == model.Password)
 				{
-					//success
+					FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
+					return Redirect(redirectUrl ?? "/");
 				}
 			}
 			return View();

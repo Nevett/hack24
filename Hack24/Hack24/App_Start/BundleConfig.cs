@@ -40,6 +40,10 @@ namespace Hack24
 						"~/Content/themes/base/jquery.ui.theme.css"));
 
 			bundles.Add(new ScriptBundle("~/bundles/questions").Include("~/Scripts/questions/*.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/foundation").Include("~/Scripts/foundation.min.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/foundation").Include("~/Content/themes/foundation/foundation.min.css"));
 		}
 	}
 }
