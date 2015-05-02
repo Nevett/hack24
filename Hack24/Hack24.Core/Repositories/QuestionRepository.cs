@@ -1,17 +1,35 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Hack24.Core.Entities;
+using Raven.Client;
+using Raven.Json.Linq;
 
 namespace Hack24.Core.Repositories
 {
 	public class QuestionRepository : RavenRepository, IQuestionRepository
 	{
-
-		IEnumerable<Question> All()
+	
+		public IEnumerable<Question> All()
 		{
+			using (IDocumentSession session = this.DocStore.OpenSession())
+			{
+				return session.Query<Question>().ToList();
+			}
+		}
 
-			var data = this.DocStore.DatabaseCommands.GetDocuments(0, 20);
+		public IEnumerable<Question> ForQuiz()
+		{
+		 return this.All().OrderBy(x => Guid.NewGuid()).Take(5);	
+		}
 
-			return new Question[0];
+		public void Store(Question question)
+		{
+			using (IDocumentSession session = this.DocStore.OpenSession())
+			{
+				session.Store(question);
+				session.SaveChanges();
+			}
 		}
 	}
 }

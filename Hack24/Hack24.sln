@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack24", "Hack24\Hack24.csproj", "{A2790ECC-10AD-4D3D-B627-CD98B68519F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack24.Core", "Hack24.Core\Hack24.Core.csproj", "{DB4ED457-505A-4F0B-ABA9-17417EB5450F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RavenTest", "RavenTest\RavenTest.csproj", "{7E56E19A-0F47-4EFD-AD5D-72D6B8282647}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DB4ED457-505A-4F0B-ABA9-17417EB5450F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB4ED457-505A-4F0B-ABA9-17417EB5450F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB4ED457-505A-4F0B-ABA9-17417EB5450F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E56E19A-0F47-4EFD-AD5D-72D6B8282647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E56E19A-0F47-4EFD-AD5D-72D6B8282647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E56E19A-0F47-4EFD-AD5D-72D6B8282647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E56E19A-0F47-4EFD-AD5D-72D6B8282647}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
