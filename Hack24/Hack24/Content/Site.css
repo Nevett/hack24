@@ -59,3 +59,19 @@ textarea {
 .validation-summary-valid {
     display: none;
 }
+
+header {
+	background-color: #261E24;
+	height: 33px;
+	color: #fff;
+}
+
+header > span {
+	position: relative;
+	top: 5px;
+	left: 5px;
+}
+
+header > .button {
+	float: right;
+}

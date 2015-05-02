@@ -10,27 +10,28 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/base")
-    @Styles.Render("~/bundles/foundation")
+    @Styles.Render("~/Content/themes/foundation/foundation.css")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/foundation")
+    @Scripts.Render("~/Scripts/foundation.min.js")
 </head>
 <body>
-	<header>
-	@if (user == null)
-	{
-		<span class="login-status">You're not logged in</span>
-		<a href="/account/login">Log in</a>
-	}
-	else
-	{
-		<span class="login-status">Hi, @user.Forename</span>
-		<a href="/account/logout">Log out</a>
-	}
+	<div class="row">
+		<header>
+			@if (user == null)
+			{
+				<span class="login-status">You're not logged in</span>
+				<a href="/account/login" class="tiny button">Log in</a>
+			}
+			else
+			{
+				<span class="login-status">Hi, @user.Forename</span>
+				<a href="/account/logout" class="tiny button">Log out</a>
+			}
+		</header>
+		@RenderBody()
+	</div>
 
-</header>
-@RenderBody()
-
-@RenderSection("scripts", required: false)
+	@RenderSection("scripts", required: false)
 </body>
 </html>
