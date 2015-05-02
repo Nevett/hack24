@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Hack24.Core.Entities;
-using Hack24.Core.Enums;
 using Hack24.Core.Repositories;
 using Hack24.Core.Service;
 

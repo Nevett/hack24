@@ -251,7 +251,7 @@
     <Content Include="Views\Questionnaire\Question.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Questionnaire\Index.cshtml" />
-    <Content Include="Views\Reports\LeaderBoard.cshtml" />
+    <Content Include="Views\Reports\Leaderboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
