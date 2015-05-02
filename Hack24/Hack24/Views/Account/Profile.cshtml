@@ -6,5 +6,18 @@
 }
 
 <h2>@Model.User.Forename @Model.User.Surname</h2>
-
+@if (Model.Person.Badges.Any())
+{
+	<p>Badges:</p>
+	<ul>
+		@foreach (var badge in Model.Person.Badges)
+		{
+			<li>@Model.BadgeNames[badge]</li>
+		}
+	</ul>
+}
+else
+{
+	<p>No badges</p>
+}
 

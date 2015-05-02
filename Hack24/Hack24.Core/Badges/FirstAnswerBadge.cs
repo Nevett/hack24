@@ -13,7 +13,7 @@ namespace Hack24.Core.Badges
 			this.completedAnswerMetricRepository = completedAnswerMetricRepository;
 		}
 
-		public string Name { get { return "Ten answers!"; } }
+		public string Name { get { return "First answer!"; } }
 		public bool IsEligible(User user)
 		{
 			return completedAnswerMetricRepository.All().Where(a => a.UserId == user.Id).GroupBy(x => x.AnswerId).Any();

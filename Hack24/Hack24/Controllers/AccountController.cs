@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Hack24.Core.Entities;
 using Hack24.Core.Repositories;
 using Hack24.Core.Service;
 using Hack24.Models;
@@ -16,9 +17,15 @@ namespace Hack24.Controllers
 	    private readonly IReportService reportService;
 
 	    public AccountController(IUserRepository userRepository, IReportService reportService)
+	    private readonly BadgeService badgeService;
+	    private readonly User currentUser;
+
+	    public AccountController(IUserRepository userRepository, BadgeService badgeService, User currentUser)
 	    {
 		    this.userRepository = userRepository;
 		    this.reportService = reportService;
+		    this.badgeService = badgeService;
+		    this.currentUser = currentUser;
 	    }
 
 	    public ActionResult Login()
@@ -50,7 +57,11 @@ namespace Hack24.Controllers
 	    public ActionResult Profile(Guid id)
 	    {
 		    var report = this.reportService.ManagerReport(id);
-		    return View(report);
+	    var report = this.reportService.ManagerReport(id);
+		    {
+			    BadgeNames = badgeService.All().ToDictionary(x => x.GetType().FullName, x => x.Name),
+			    Person = currentUser
+		    });
 	    }
     }
 }
