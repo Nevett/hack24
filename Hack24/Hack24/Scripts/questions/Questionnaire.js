@@ -14,12 +14,17 @@ $(function () {
 		questionDiv.append($("<div class='question-text'></div>").text(question.Text));
 		if (question.ImageUrl)
 			questionDiv.append($("<img/>").attr("src", question.ImageUrl));
+		var $answersDiv = $("<div/>").addClass("answers");
+
+		questionDiv.append($answersDiv);
+
 		$.each(question.Answers, function() {
 			var answer = this;
-			var answerDiv = $("<div class='answer'></div>").text(answer.Text).data('id', answer.Id).on('click', submitAnswer);
+			var answerDiv = $("<div class='answer'></div>").data('id', answer.Id).on('click', submitAnswer);
 			if (answer.ImageUrl)
 				answerDiv.append($("<img/>").attr("src", answer.ImageUrl));
-			questionDiv.append(answerDiv);
+			answerDiv.append($("<span/>").text(answer.Text));
+			$answersDiv.append(answerDiv);
 		});
 
 		questionContainer.append(questionDiv);
@@ -31,4 +36,9 @@ $(function () {
 	};
 
 	$.ajax("/questionnaire/question").done(populateQuestion);
+
+	$(window).resize(function () {
+		$(".answer").height($(".answer").width() + 20);
+		$(".answer img").height($(".answer img").width() + 20);
+	});
 });
