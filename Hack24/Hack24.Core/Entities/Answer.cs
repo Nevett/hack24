@@ -6,9 +6,9 @@ namespace Hack24.Core.Entities
 {
 	public sealed class Answer
 	{
-		public readonly Guid Id;
-		public readonly string Text;
-		public readonly string ImageUrl;
-		public IDictionary<Metric, int> MetricModifiers;
+		public Guid Id { get; set; }
+		public string Text { get; set; }
+		public string ImageUrl { get; set; }
+		public IDictionary<Metric, int> MetricModifiers { get; set; }
 	}
 }

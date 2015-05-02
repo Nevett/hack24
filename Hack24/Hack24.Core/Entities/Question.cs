@@ -6,9 +6,11 @@ namespace Hack24.Core.Entities
 {
 	public class Question
 	{
-		public readonly Guid Id;
-		public readonly string ImageUrl;
+		public Guid Id { get; set; }
 
-		public readonly IEnumerable<Answer> Answers;
+		public string Text { get; set; }
+		public string ImageUrl { get; set; }
+
+		public IEnumerable<Answer> Answers { get; set; }
 	}
 }
