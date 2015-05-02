@@ -1,7 +1,17 @@
-﻿@model dynamic
+﻿@using NanoIoC
+@model dynamic
 
 @{
 	ViewBag.Title = "title";
+	var user = Container.Global.Resolve<Hack24.Core.Entities.User>();
 }
 
-<h2>title</h2>
+@if (user == null)
+{
+	<h2>You're not logged in</h2>
+	<a href="/account/login">Log in</a>
+}
+else
+{
+	<h2>Hi, @user.Forename</h2>
+}
