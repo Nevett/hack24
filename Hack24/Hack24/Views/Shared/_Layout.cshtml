@@ -25,11 +25,14 @@
 			}
 			else
 			{
-				<span class="login-status">Hi, @user.Forename</span>
+				<span class="login-status">Hi, <strong>@user.Forename</strong></span>
 				<a href="/account/logout" class="tiny button">Log out</a>
 			}
 		</header>
 		@RenderBody()
+		<footer>
+			<span>A Team Bum Production</span>
+		</footer>
 	</div>
 
 	@RenderSection("scripts", required: false)

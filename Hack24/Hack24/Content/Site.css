@@ -125,6 +125,11 @@ header > .button {
 	float: right;
 }
 
+.answer:nth-child(3),
+.answer:nth-child(4) {
+	margin-bottom: 40px;
+}
+
 h1 {
 	text-align: center;
 }
@@ -136,8 +141,28 @@ h1 {
 	-webkit-box-shadow: 5px 0 5px #CCC, -5px 0 5px #ccc;
 	-ms-box-shadow: 5px 0 5px #CCC, -5px 0 5px #ccc;
 	box-shadow: 5px 0 5px #CCC, -5px 0 5px #ccc;
+	position: relative;
 }
 
 form > .button {
 	float: right;
+}
+
+a.rate {
+	margin: auto;
+	position: absolute;
+	left: 100px;
+	right: 100px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 480px;
+    left: 0;
+    border: 1px solid #ccc;
+    background-color: #261E24;
+    color: #fff;
+    text-align: center;
+
 }
