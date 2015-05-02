@@ -1,0 +1,20 @@
+﻿@model System.Collections.Generic.List<Hack24.Core.Entities.Question>
+
+@{
+	ViewBag.Title = "Questionnaire";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/bundles/questions")
+@Scripts.Render("~/bundles/questions")
+
+<h2>Questionnaire</h2>
+
+@foreach (var question in Model)
+{
+	@Html.Partial("Question", question)
+}
+
+<div class="finishBlock" style="display: none">
+	<span>Thanks for filling this in, your HR manager is now slightly happier in life (at least until they see the results)</span>
+	<img src="http://cobaltpm.com/wp-content/uploads/2012/10/project-manager-smiling-at-desk.jpg" />
+</div>

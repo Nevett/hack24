@@ -31,11 +31,18 @@ $(function () {
 	});
 
 	window.bus.sub("question goto", function (questionId) {
-		var target = $("ul[data-questionid='" + questionId + "']").closest(".question");
-		$("body").scrollTop(target.offset().top);
+		var $target = $("ul[data-questionid='" + questionId + "']").closest(".question");
+		$("body").animate({ scrollTop: $target.offset().top });
 	});
 
-	window.bus.sub("questionnaire finish", function(answers) {
+	window.bus.sub("questionnaire finish", function (answers) {
+		var $target = $(".finishBlock");
+
+		$(".question").hide();
+		$target.show();
+
+		$("body").animate({ scrollTop: $target.offset().top });
+
 		console.log("Questionnaire finish", answers);
 	});
 });
