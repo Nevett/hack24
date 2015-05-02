@@ -3,17 +3,15 @@
 <div class="question">
 	@Model.Text
 
-	<div class="row">
-		<ul data-questionid="@Model.Id">
-			@foreach (var answer in Model.Answers)
-			{
-				<li class="answer" data-answerid="@answer.Id">
-					<div>
-						<span>@answer.Text</span>
-						<img src="@answer.ImageUrl" />
-					</div>
-				</li>
-			}
-		</ul>
-	</div>
+    <ul class="small-block-grid-2" data-questionid="@Model.Id">
+        @foreach (var answer in Model.Answers)
+        {
+            <li class="answer" data-answerid="@answer.Id">
+                <div>
+                    <span>@answer.Text</span>
+                    <img src="@answer.ImageUrl" />
+                </div>
+            </li>
+        }
+    </ul>
 </div>
