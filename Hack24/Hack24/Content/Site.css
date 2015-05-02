@@ -87,7 +87,7 @@ header > .button {
 
 .answer {
 	position: relative;
-	border: 1px solid #000;
+	border: 1px solid #73686F;
 	padding: 10px;
 	width: calc(50% - 10px);
 	height: 240px;
@@ -95,9 +95,13 @@ header > .button {
 	margin-bottom: 20px;
 }
 
+.imgBox {
+	width: 100%;
+	border: 1px solid #73686F;
+	box-sizing: border-box;
+}
+
 .answer img {
-	width: 180px;
-	height: 180px;
 }
 
 .answer > span {

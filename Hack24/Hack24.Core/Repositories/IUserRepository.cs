@@ -9,5 +9,6 @@ namespace Hack24.Core.Repositories
 	{
 		User Get(Guid id);
 		IEnumerable<User> All();
+		void Store(User user);
 	}
 }

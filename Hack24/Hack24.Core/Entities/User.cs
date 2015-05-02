@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Hack24.Core.Badges;
 
 namespace Hack24.Core.Entities
 {
@@ -8,7 +9,8 @@ namespace Hack24.Core.Entities
 	{
 		public User()
 		{
-			TeamMembers = new List<User>();
+			TeamMemberIds = new List<Guid>();
+			Badges = new List<string>();
 		}
 
 		public Guid Id { get; set; }
@@ -16,7 +18,13 @@ namespace Hack24.Core.Entities
 		public string Forename { get; set; }
 		public string Surname { get; set; }
 		public string Password { get; set; }
-		public User Manager { get; set; }
-		public IList<User> TeamMembers { get; set; } 
+		public Guid ManagerId { get; set; }
+		public IList<Guid> TeamMemberIds { get; set; }
+		public IList<string> Badges { get; set; }
+
+		public bool HasBadge(IBadge badge)
+		{
+			return this.Badges.Contains(badge.GetType().FullName);
+		}
 	}
 }

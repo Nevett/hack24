@@ -13,7 +13,7 @@ $(function () {
 		var questionDiv = $("<div class='question'></div>");
 		questionDiv.append($("<div class='question-text'></div>").text(question.Text));
 		if (question.ImageUrl)
-			questionDiv.append($("<img/>").attr("src", question.ImageUrl));
+			questionDiv.append($("<img/>").attr("src", "/Assets/Images/Questions/" + question.ImageUrl));
 		var $answersDiv = $("<div/>").addClass("answers");
 
 		questionDiv.append($answersDiv);
@@ -21,8 +21,10 @@ $(function () {
 		$.each(question.Answers, function() {
 			var answer = this;
 			var answerDiv = $("<div class='answer'></div>").data('id', answer.Id).on('click', submitAnswer);
+			var $imgDiv = $("<div/>").addClass("imgBox");
+			answerDiv.append($imgDiv);
 			if (answer.ImageUrl)
-				answerDiv.append($("<img/>").attr("src", answer.ImageUrl));
+				$imgDiv.append($("<img/>").attr("src", "/Assets/Images/Questions/" + answer.ImageUrl));
 			answerDiv.append($("<span/>").text(answer.Text));
 			$answersDiv.append(answerDiv);
 		});
@@ -38,7 +40,6 @@ $(function () {
 	$.ajax("/questionnaire/question").done(populateQuestion);
 
 	$(window).resize(function () {
-		$(".answer").height($(".answer").width() + 20);
-		$(".answer img").height($(".answer img").width() + 20);
+		$(".answer").height($(".answer").width() + 60);
 	});
 });

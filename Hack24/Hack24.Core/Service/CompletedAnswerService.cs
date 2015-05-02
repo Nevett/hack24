@@ -30,7 +30,7 @@ namespace Hack24.Core.Service
 					Id = Guid.NewGuid(),
 					QuestionId = questionId,
 					AnswerId = answerId,
-					ManagerId = currentUser.Manager.Id,
+					ManagerId = currentUser.ManagerId,
 					UserId = currentUser.Id,
 					Metric = metricModifier.Key,
 					Score = metricModifier.Value

@@ -1,4 +1,6 @@
-﻿using Hack24.Core.Entities;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Hack24.Core.Entities;
 using Raven.Client;
 
 namespace Hack24.Core.Repositories
@@ -11,6 +13,14 @@ namespace Hack24.Core.Repositories
 			{
 				session.Store(metric);
 				session.SaveChanges();
+			}
+		}
+
+		public IEnumerable<AnswerMetric> All()
+		{
+			using (IDocumentSession session = this.DocStore.OpenSession())
+			{
+				return session.Query<AnswerMetric>().ToList();
 			}
 		}
 	}
