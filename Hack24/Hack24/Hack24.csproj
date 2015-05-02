@@ -236,7 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hack24.Core\Hack24.Core.csproj">
-      <Project>{DB4ED457-505A-4F0B-ABA9-17417EB5450F}</Project>
+      <Project>{db4ed457-505a-4f0b-aba9-17417eb5450f}</Project>
       <Name>Hack24.Core</Name>
     </ProjectReference>
   </ItemGroup>
