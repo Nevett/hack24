@@ -8,8 +8,9 @@ namespace Hack24.Core
 		public void Setup()
 		{
 
-			new ManagerMetricAverageIndexCreation().Execute(this.DocStore);
-			new ManagerMetricTotalIndexCreation().Execute(this.DocStore);
+			new ManagerMetricAverageIndex().Execute(this.DocStore);
+			new ManagerMetricTotalIndex().Execute(this.DocStore);
+			new ManagerTotalIndex().Execute(this.DocStore);
 		}
 	}
 }

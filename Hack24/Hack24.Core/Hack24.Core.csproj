@@ -54,8 +54,10 @@
     <Compile Include="Entities\Answer.cs" />
     <Compile Include="Entities\AnswerMetric.cs" />
     <Compile Include="Entities\CompletedAnswer.cs" />
-    <Compile Include="Entities\Raven\ManagerMetricTotalIndexCreation.cs" />
-    <Compile Include="Entities\Raven\ManagerMetricAverageIndexCreation.cs" />
+    <Compile Include="Entities\Raven\ManagerTotalIndex.cs" />
+    <Compile Include="Entities\Raven\ManagerMetricTotalIndex.cs" />
+    <Compile Include="Entities\Raven\ManagerMetricAverageIndex.cs" />
+    <Compile Include="Entities\ScoreBoardRow.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enums\Metric.cs" />
     <Compile Include="Entities\Question.cs" />
@@ -73,10 +75,10 @@
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Service\CompletedAnswerService.cs" />
     <Compile Include="Service\ICompletedAnswerService.cs" />
+    <Compile Include="Service\IReportService.cs" />
+    <Compile Include="Service\ReportService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Indexes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

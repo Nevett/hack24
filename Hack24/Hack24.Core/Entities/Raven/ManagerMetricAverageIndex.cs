@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Linq;
 using Hack24.Core.Enums;
-using Mono.CSharp;
-using Raven.Abstractions.Indexing;
 using Raven.Client.Indexes;
 
 namespace Hack24.Core.Entities.Raven
 {
-	public class ManagerMetricAverageIndexCreation : AbstractIndexCreationTask<AnswerMetric, ManagerMetricAverageIndexCreation.ManagerMetricAverage>
+	public class ManagerMetricAverageIndex : AbstractIndexCreationTask<AnswerMetric, ManagerMetricAverageIndex.ManagerMetricAverage>
 	{
-		public ManagerMetricAverageIndexCreation()
+		public ManagerMetricAverageIndex()
 		{
 			Map = answerMetrics => from m in answerMetrics
 				select new
