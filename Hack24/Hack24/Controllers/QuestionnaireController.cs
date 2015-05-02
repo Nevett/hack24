@@ -16,7 +16,7 @@ namespace Hack24.Controllers
 			_questionRepository = questionRepository;
 		}
 		
-		public ViewResult Questionnaire()
+		public ViewResult Index()
 		{
 			var questions = new List<Question>
 			{
