@@ -1,4 +1,6 @@
-﻿@using NanoIoC
+﻿@{
+	var user = this.User();
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,11 +17,6 @@
 </head>
 <body>
 	<header>
-	@{
-		var user = Container.Global.Resolve<Hack24.Core.Entities.User>();
-			
-	}
-
 	@if (user == null)
 	{
 		<span class="login-status">You're not logged in</span>

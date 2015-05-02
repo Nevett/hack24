@@ -140,6 +140,7 @@
     </Compile>
     <Compile Include="Infrastructure\AuthenticationModule.cs" />
     <Compile Include="Infrastructure\IoCControllerFactory.cs" />
+    <Compile Include="Infrastructure\RazorViewExtensions.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
