@@ -103,10 +103,13 @@ header > .button {
 
 .imgBox {
 	width: 100%;
-	border: 1px solid #73686F;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+.imgBox img {
+	border: 1px solid #73686F;
 }
 
 .answer > span {
