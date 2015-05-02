@@ -12,18 +12,18 @@
 }
 else
 {
-	if (user.Manager == null && !user.TeamMembers.Any())
+	if (user.ManagerId == Guid.Empty && !user.TeamMemberIds.Any())
 	{
 		// no manager and no team members - weird, error.
 		<h1>You aren't a manager, and have no managers. Why are you here?!</h1>
 	}
-	else if (user.Manager == null)
+	else if (user.ManagerId == Guid.Empty)
 	{
 		// add way to nag employees?
 		<h1>Your employees should rate you. Go nag them.</h1>
 	}
 	else
 	{
-		<h1>Go rate your manager @user.Manager.Forename <a href="/questionnaire">here</a>.</h1>
+		<h1>Go rate your manager @user.ManagerId <a href="/questionnaire">here</a>.</h1>
 	}
 }

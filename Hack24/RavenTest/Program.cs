@@ -76,7 +76,7 @@ namespace RavenTest
 			{
 				Id = Guid.NewGuid(),
 				AnswerId = Guid.NewGuid(),
-				ManagerId = user.Manager.Id,
+				ManagerId = user.ManagerId,
 				QuestionId = Guid.NewGuid(),
 				UserId = Guid.NewGuid(),
 				Metric = Metric.ProblemSolving,
@@ -87,7 +87,7 @@ namespace RavenTest
 			{
 				Id = Guid.NewGuid(),
 				AnswerId = Guid.NewGuid(),
-				ManagerId = user.Manager.Id,
+				ManagerId = user.ManagerId,
 				QuestionId = Guid.NewGuid(),
 				UserId = Guid.NewGuid(),
 				Metric = Metric.ProblemSolving,

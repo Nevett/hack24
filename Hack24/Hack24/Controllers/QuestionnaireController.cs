@@ -33,6 +33,10 @@ namespace Hack24.Controllers
 				completedAnswerService.RecordAnswer(lastQuestionId.Value, lastAnswerId.Value, currentUser);
 
 			var question = _questionRepository.GetForUser(currentUser.Id);
+
+			if (question == null)
+				return Json(null, JsonRequestBehavior.AllowGet);
+
 			return Json(new 
 			{ 
 				question.Id, 
