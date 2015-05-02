@@ -37,5 +37,11 @@ namespace Hack24.Controllers
 			}
 			return View();
 		}
+
+		public ActionResult LogOut()
+		{
+			FormsAuthentication.SetAuthCookie(string.Empty, true);
+			return Redirect("/");
+		}
     }
 }
