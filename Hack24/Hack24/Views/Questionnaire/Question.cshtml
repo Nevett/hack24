@@ -1,7 +1,6 @@
 ﻿@inherits WebViewPage<Hack24.Core.Entities.Question>
 @Styles.Render("~/bundles/questions")
 @Scripts.Render("~/bundles/base")
-@Scripts.Render("~/Scripts/amplify.min.js")
 @Scripts.Render("~/bundles/questions")
 
 @Model.Text
@@ -9,7 +8,7 @@
 <ul data-questionId="@Model.Id">
 	@foreach (var answer in Model.Answers)
 {
-	<li class="answer">
+	<li class="answer" data-answerId="@answer.Id">
 		<div>
 			<span>@answer.Text</span>
 			<img src="@answer.ImageUrl" />

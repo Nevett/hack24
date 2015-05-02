@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Hack24.Core.Entities;
 using Hack24.Core.Enums;
@@ -21,12 +22,14 @@ namespace Hack24.Controllers
 			{
 				new Question
 				{
+					Id = Guid.NewGuid(),
 					Text = "Which buffy character is the coolest",
 					ImageUrl = "http://www.thetvcritic.org/assets/Buffy/_resampled/resizedimage600298-Standard-Image-Size-Buffy.jpg",
 					Answers = new List<Answer>
 					{
 						new Answer
 						{
+							Id = Guid.NewGuid(),
 							Text = "Zander",
 							ImageUrl = "http://upload.wikimedia.org/wikipedia/en/0/0f/S721_Xander.png",
 							MetricModifiers = new Dictionary<Metric, int>
@@ -37,6 +40,7 @@ namespace Hack24.Controllers
 						},
 						new Answer
 						{
+							Id = Guid.NewGuid(),
 							Text = "Willow",
 							ImageUrl = "http://upload.wikimedia.org/wikipedia/en/6/6d/WillowRosenberg.jpg",
 							MetricModifiers = new Dictionary<Metric, int>
@@ -47,6 +51,7 @@ namespace Hack24.Controllers
 						},
 						new Answer
 						{
+							Id = Guid.NewGuid(),
 							Text = "Giles",
 							ImageUrl = "http://vignette1.wikia.nocookie.net/buffy/images/a/a5/Buffy_-_Im_Bann_de_D%C3%A4monen_(7).jpg/revision/latest?cb=20110703171655&path-prefix=de",
 							MetricModifiers = new Dictionary<Metric, int>
@@ -57,6 +62,7 @@ namespace Hack24.Controllers
 						},
 						new Answer
 						{
+							Id = Guid.NewGuid(),
 							Text = "Spike",
 							ImageUrl = "http://upload.wikimedia.org/wikipedia/en/0/00/S203_Spike.jpg",
 							MetricModifiers = new Dictionary<Metric, int>
@@ -69,12 +75,14 @@ namespace Hack24.Controllers
 				},
 				new Question
 				{
+					Id = Guid.NewGuid(),
 					Text = "Which isn't buffy character is the coolest",
 					ImageUrl = "http://www.thetvcritic.org/assets/Buffy/_resampled/resizedimage600298-Standard-Image-Size-Buffy.jpg",
 					Answers = new List<Answer>
 					{
 						new Answer
 						{
+							Id = Guid.NewGuid(),
 							Text = "Zander",
 							ImageUrl = "http://upload.wikimedia.org/wikipedia/en/0/0f/S721_Xander.png",
 							MetricModifiers = new Dictionary<Metric, int>
@@ -85,6 +93,7 @@ namespace Hack24.Controllers
 						},
 						new Answer
 						{
+							Id = Guid.NewGuid(),
 							Text = "Willow",
 							ImageUrl = "http://upload.wikimedia.org/wikipedia/en/6/6d/WillowRosenberg.jpg",
 							MetricModifiers = new Dictionary<Metric, int>
@@ -95,6 +104,7 @@ namespace Hack24.Controllers
 						},
 						new Answer
 						{
+							Id = Guid.NewGuid(),
 							Text = "Giles",
 							ImageUrl = "http://vignette1.wikia.nocookie.net/buffy/images/a/a5/Buffy_-_Im_Bann_de_D%C3%A4monen_(7).jpg/revision/latest?cb=20110703171655&path-prefix=de",
 							MetricModifiers = new Dictionary<Metric, int>
@@ -105,6 +115,7 @@ namespace Hack24.Controllers
 						},
 						new Answer
 						{
+							Id = Guid.NewGuid(),
 							Text = "Spike",
 							ImageUrl = "http://upload.wikimedia.org/wikipedia/en/0/00/S203_Spike.jpg",
 							MetricModifiers = new Dictionary<Metric, int>
