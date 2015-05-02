@@ -30,8 +30,9 @@ $(function () {
 			window.bus.pub("question goto", nextQuestion);
 	});
 
-	window.bus.sub("question goto", function(questionId) {
-		console.log("Go to question", questionId);
+	window.bus.sub("question goto", function (questionId) {
+		var target = $("ul[data-questionid='" + questionId + "']").closest(".question");
+		$("body").scrollTop(target.offset().top);
 	});
 
 	window.bus.sub("questionnaire finish", function(answers) {
