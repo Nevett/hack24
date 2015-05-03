@@ -185,3 +185,17 @@ header hr {
 header a {
 	color: white;
 }
+
+
+table {
+
+	width: 100%;
+}
+
+thead {
+	
+}
+
+td.number {
+	text-align: right;
+}
