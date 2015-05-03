@@ -2,7 +2,6 @@
 {
 	public enum Metric
 	{
-		Categories,
 		Communication,
 		ResultsFocus,
 		CustomerFocus,
@@ -10,7 +9,6 @@
 		Leadership,
 		DecisionMakingAndJudgement,
 		TechnicalUnderstanding,
-		Questions,
 		Drive,
 		StrategicAwareness,
 		Vision,

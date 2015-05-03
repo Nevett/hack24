@@ -82,6 +82,7 @@ header > span {
 header > .button {
 	float: right;
 	margin-left: 3px;
+	margin-bottom: 0px;
 }
 
 .question {
