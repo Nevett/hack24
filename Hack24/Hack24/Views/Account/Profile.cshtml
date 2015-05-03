@@ -6,11 +6,12 @@
 }
 
 <h2>@Model.User.Forename @Model.User.Surname</h2>
-@if (Model.Person.Badges.Any())
+
+@if (Model.User.Badges.Any())
 {
 	<p>Badges:</p>
 	<ul>
-		@foreach (var badge in Model.Person.Badges)
+		@foreach (var badge in Model.User.Badges)
 		{
 			<li>@Model.BadgeNames[badge]</li>
 		}
@@ -21,3 +22,15 @@ else
 	<p>No badges</p>
 }
 
+
+@if (Model.Metrics.Any())
+{
+	<p>Stats:</p>
+	<dl>
+		@foreach (var stat in Model.Metrics)
+		{
+			<dt>@stat.Metric</dt>
+			<dd>@stat.Score.ToString("#.0") /5</dd>
+		}
+	</dl>
+}

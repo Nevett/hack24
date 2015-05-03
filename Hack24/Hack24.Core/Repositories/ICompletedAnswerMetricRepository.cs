@@ -12,5 +12,6 @@ namespace Hack24.Core.Repositories
 		IEnumerable<ManagerTotalIndex.ManagerTotal> GetTotal(Guid userId);
 		IEnumerable<ManagerTotalIndex.ManagerTotal> GetLeaderboard();
 		IEnumerable<AnswerMetric> All();
+		IEnumerable<ManagerMetricTotalIndex.ManagerMetricTotal> GetMetricTotals(Guid userId);
 	}
 }

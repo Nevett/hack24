@@ -8,5 +8,6 @@ namespace Hack24.Core.Entities
 		public IEnumerable<ManagerTotalIndex.ManagerTotal> TotalScore { get; set; }
 		public IEnumerable<ManagerMetricAverageIndex.ManagerMetricAverage> Metrics { get; set; }
 		public User User { get; set; }
+		public Dictionary<string, string> BadgeNames { get; set; }
 	}
 }

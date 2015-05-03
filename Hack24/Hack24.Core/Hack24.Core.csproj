@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Badges\ProblemSolverBadge.cs" />
     <Compile Include="Badges\IBadge.cs" />
     <Compile Include="Badges\FirstAnswerBadge.cs" />
     <Compile Include="Badges\TenAnswersBadge.cs" />

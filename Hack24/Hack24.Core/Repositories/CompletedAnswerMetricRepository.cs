@@ -23,17 +23,25 @@ namespace Hack24.Core.Repositories
 		{
 			using (IDocumentSession session = this.DocStore.OpenSession())
 			{
-				return session.Query<ManagerMetricAverageIndex.ManagerMetricAverage>()
+				return session.Query<ManagerMetricAverageIndex.ManagerMetricAverage>("ManagerMetricAverageIndex")
 					.Where(x => x.ManagerId == userId)
 					.ToList(); ;
 			}
 		}
-
+		public IEnumerable<ManagerMetricTotalIndex.ManagerMetricTotal> GetMetricTotals(Guid userId)
+		{
+			using (IDocumentSession session = this.DocStore.OpenSession())
+			{
+				return session.Query<ManagerMetricTotalIndex.ManagerMetricTotal>("ManagerMetricTotalIndex")
+					.Where(x => x.ManagerId == userId)
+					.ToList(); ;
+			}
+		}
 		public IEnumerable<ManagerTotalIndex.ManagerTotal> GetTotal(Guid userId)
 		{
 			using (IDocumentSession session = this.DocStore.OpenSession())
 			{
-				return session.Query<ManagerTotalIndex.ManagerTotal>()
+				return session.Query<ManagerTotalIndex.ManagerTotal>("ManagerTotalIndex")
 					.Where(x => x.ManagerId == userId)
 					.ToList();
 			}
