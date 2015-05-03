@@ -1,37 +1,47 @@
-﻿@model Hack24.Core.Entities.UserProfileReport
+﻿@using Newtonsoft.Json.Linq
+@model Hack24.Core.Entities.UserProfileReport
+@Scripts.Render("~/Scripts/Reports.js")
 
 @{
 	ViewBag.Title = "title";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="profile">
+	<h1>@Model.User.Forename @Model.User.Surname</h1>
 
-<h1>@Model.User.Forename @Model.User.Surname</h1>
-
-@if (Model.User.Badges.Any())
-{
-	<p>Badges:</p>
+	@if (Model.User.Badges.Any())
+	{
+		<h2>Badges:</h2>
 	<ul class="badges">
-		@foreach (var badge in Model.User.Badges)
-		{
+			@foreach (var badge in Model.User.Badges)
+			{
 			<li><em></em>@Model.BadgeNames[badge]</li>
-		}
-	</ul>
-}
-else
-{
-	<p>No badges</p>
-}
+			}
+		</ul>
+	}
+	else
+	{
+		<p>No badges</p>
+	}
 
 <hr/>
 
-@if (Model.Metrics.Any())
-{
-	<p>Stats:</p>
-	<dl>
-		@foreach (var stat in Model.Metrics)
-		{
-			<dt>@stat.Metric</dt>
-			<dd>@stat.Score.ToString("#.0") /5</dd>
-		}
-	</dl>
-}
+	@if (Model.Metrics.Any())
+	{
+		<h2>Stats:</h2>
+		<dl>
+			@foreach (var stat in Model.Metrics)
+			{
+				<dt>@Html.MetricToEnglish(stat.Metric)</dt>
+				<dd>@stat.Score.ToString("#.0") /5</dd>
+			}
+		</dl>
+	}
+
+<hr/>
+	
+	<canvas id="reportShape"></canvas>
+</div>
+<script>
+	var stats = @Html.MetricsToObject(Model.Metrics);
+</script>

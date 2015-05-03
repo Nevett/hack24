@@ -189,6 +189,11 @@ header a {
 	color: white;
 }
 
+table {
+	margin: 20px;
+	width: calc(100% - 40px);
+}
+
 .badgeAlert {
 	position: absolute;
 	top: 0;
@@ -235,37 +240,42 @@ td.number {
 
 
 ul.badges {
-	
-}
-
-ul.badges li {
-
 	list-style: none;
 	display: block;
 	padding: 0px;
-	margin: 0px;
 	text-align: center;
 	float: left;
 }
 
 ul.badges li em {
-
-
 	float: left;
 	
 	display: block;
 	border-radius: 16px;
 	background-color: #e5c305;
-	width: 16px;
 	height: 16px;
 	padding: 10px;
 	margin: 3px 5px 10px 15px;
 
 }
 
-dl {
+.profile {
+	width: calc(100% - 40px);
+	margin-left: 20px;
+}
+
+.profile hr {
+	margin-left: -20px;
+	margin-right: -20px;
+	border-top: 1px solid #261E24;
+	box-shadow: 0 1px 1px #342940;
+}
+
+#reportShape{
 	display: block;
 	width: 100%;
+	border: 2px solid #73686f;
+	margin-bottom: 20px;
 }
 
 dt,dd{float: left; width: 50%;}
