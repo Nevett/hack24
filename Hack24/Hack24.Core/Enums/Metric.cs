@@ -7,7 +7,7 @@
 		CustomerFocus,
 		ProblemSolving,
 		Leadership,
-		DecisionMaking,
+		DecisionMakingAndJudgement,
 		TechnicalUnderstanding,
 		Drive,
 		StrategicAwareness,

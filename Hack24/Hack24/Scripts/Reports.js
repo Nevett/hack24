@@ -40,8 +40,9 @@
 		current++;
 	}
 	context.closePath();
-	context.fillStyle = "#73686F";
-	context.strokeStyle = "#544C51";
+	context.fillStyle = "#94DBFF";
+	context.lineWidth = 3;
+	context.strokeStyle = "#76AFCC";
 	context.fill();
 	context.stroke();
 

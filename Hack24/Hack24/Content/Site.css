@@ -301,3 +301,7 @@ dt,dd{float: left; width: 50%;}
 	color: #261e24;
 	margin-top: -10px;
 }
+
+dd {
+	text-align: right;
+}

@@ -32,6 +32,10 @@ namespace Hack24.Infrastructure
 
 		public static IHtmlString MetricToEnglish(this HtmlHelper html, Metric metric)
 		{
+			// PRETEND I'M NOT HERE
+			if (metric == Metric.DecisionMakingAndJudgement)
+				return new HtmlString("Decision Making");
+
 			var m = metric.ToString();
 
 			var caps = new Regex("([A-Z])");
