@@ -189,6 +189,36 @@ header a {
 	color: white;
 }
 
+.badgeAlert {
+	position: absolute;
+	top: 0;
+	background-color: chocolate;
+	color: white;
+	-webkit-animation: showBadges 4s ease 1 both;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+	width: 100%;
+	padding: 10px;
+}
+
+.badgeTitle { font-weight: bold; }
+.badgeDescription { font-size: smaller; }
+
+
+@-webkit-keyframes showBadges {
+	0% {
+		-webkit-transform: translateY(-100%);
+	}
+	10% {
+		-webkit-transform: translateY(0%);
+	}
+	90% {
+		-webkit-transform: translateY(0%);
+	}
+	100% {
+		-webkit-transform: translateY(-100%);
+	}	
+}
+
 
 table {
 

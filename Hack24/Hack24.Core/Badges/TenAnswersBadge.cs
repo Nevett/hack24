@@ -14,6 +14,7 @@ namespace Hack24.Core.Badges
 		}
 
 		public string Name { get { return "Ten answers!"; } }
+		public string Description { get { return "You've hit double figures, nice job!"; } }
 
 		public bool IsEligible(User user)
 		{
