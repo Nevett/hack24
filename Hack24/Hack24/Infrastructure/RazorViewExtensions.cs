@@ -24,7 +24,9 @@ namespace Hack24.Infrastructure
 			var badges = Container.Global.Resolve<BadgeService>().All();
 			var str = "<script type='text/javascript'>window.badgeTitles=";
 			str += JsonConvert.SerializeObject(badges.ToDictionary(x => x.GetType().FullName, x => x.Name));
-			str += "</script>";
+			str += ";window.badgeDescriptions=";
+			str += JsonConvert.SerializeObject(badges.ToDictionary(x => x.GetType().FullName, x => x.Description));
+			str += ";</script>";
 			return new HtmlString(str);
 		}
 

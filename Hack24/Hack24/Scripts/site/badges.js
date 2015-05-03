@@ -14,11 +14,24 @@
 				}
 
 				if (newBadges.length) {
-					alert("New badge! " + badgeTitles[newBadges[0]]);
+					var badgeDiv = $("<div class='badgeAlert'></div>");
+					$.each(newBadges, function() {
+						badgeDiv.append($("<div class='badgeTitle'></div>").text(window.badgeTitles[this]));
+						badgeDiv.append($("<div class='badgeDescription'></div>").text(window.badgeDescriptions[this]));
+					});
+					$("body > div").append(badgeDiv);
+					setTimeout(function() {
+						badgeDiv.remove();
+						checkBadges();
+					}, 5000);
+				} else {
+					setTimeout(checkBadges, 1000);
 				}
+			} else {
+				setTimeout(checkBadges, 1000);
 			}
 			currentBadges = badges;
-			setTimeout(checkBadges, 1000);
+			
 		});
 	};
 	setTimeout(checkBadges, 1000);

@@ -15,6 +15,7 @@ namespace Hack24.Core.Badges
 		}
 
 		public string Name { get { return "Problem Solver!"; } }
+		public string Description { get { return "Achieved a high \"Problem Solving\" score from your team"; } }
 		public bool IsEligible(User user)
 		{
 			return

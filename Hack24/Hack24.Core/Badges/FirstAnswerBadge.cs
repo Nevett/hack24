@@ -14,6 +14,8 @@ namespace Hack24.Core.Badges
 		}
 
 		public string Name { get { return "First answer!"; } }
+		public string Description { get { return "Answered your first question. Keep going!"; } }
+
 		public bool IsEligible(User user)
 		{
 			return completedAnswerMetricRepository.All().Where(a => a.UserId == user.Id).GroupBy(x => x.AnswerId).Any();

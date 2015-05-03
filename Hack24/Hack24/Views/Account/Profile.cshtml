@@ -12,10 +12,10 @@
 	@if (Model.User.Badges.Any())
 	{
 		<h2>Badges:</h2>
-		<ul>
+	<ul class="badges">
 			@foreach (var badge in Model.User.Badges)
 			{
-				<li>@Model.BadgeNames[badge]</li>
+			<li><em></em>@Model.BadgeNames[badge]</li>
 			}
 		</ul>
 	}
@@ -24,6 +24,7 @@
 		<p>No badges</p>
 	}
 
+<hr/>
 
 	@if (Model.Metrics.Any())
 	{
@@ -36,6 +37,8 @@
 			}
 		</dl>
 	}
+
+<hr/>
 	
 	<canvas id="reportShape"></canvas>
 </div>
