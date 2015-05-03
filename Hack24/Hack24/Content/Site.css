@@ -185,3 +185,8 @@ header hr {
 header a {
 	color: white;
 }
+
+table {
+	margin: 20px;
+	width: calc(100% - 40px);
+}
