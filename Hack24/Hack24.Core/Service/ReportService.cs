@@ -29,14 +29,17 @@ namespace Hack24.Core.Service
 
 			foreach (var score in totalScores)
 			{
-				var user = managers.First(x => x.Id == score.ManagerId);
-				scoreboard.Add(new ScoreBoardRow
+				if (managers.Any(x => x.Id == score.ManagerId))
 				{
-					Id = user.Id,
-					Name = user.Forename + " " + user.Surname,
-					Score = score.Score
+					var user = managers.First(x => x.Id == score.ManagerId);
+					scoreboard.Add(new ScoreBoardRow
+					{
+						Id = user.Id,
+						Name = user.Forename + " " + user.Surname,
+						Score = score.Score
 
-				});
+					});
+				}
 			}
 
 			return scoreboard;
