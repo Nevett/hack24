@@ -33,7 +33,7 @@
 			@foreach (var stat in Model.Metrics)
 			{
 				<dt>@Html.MetricToEnglish(stat.Metric)</dt>
-				<dd>@stat.Score.ToString("#.0") /5</dd>
+				<dd>@stat.Score.ToString("#.0") / 5.0</dd>
 			}
 		</dl>
 	}

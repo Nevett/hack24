@@ -97,10 +97,16 @@ header > .button {
 	height: 240px;
 	text-align: center;
 	margin-bottom: 20px;
-	background-color: #fff;
+	background-color: #f3f3f3;
 	-webkit-box-shadow: 3px 3px 5px #888;
 	-ms-box-shadow: 3px 3px 5px #888;
 	box-shadow: 3px 3px 5px #888;
+	box-sizing: border-box;
+}
+
+.answer:hover {
+	border: 1px solid #d5becd;
+	background-color: #fff;
 }
 
 .imgBox {
@@ -147,6 +153,10 @@ h1 {
 	-ms-box-shadow: 5px 0 5px #CCC, -5px 0 5px #ccc;
 	box-shadow: 5px 0 5px #CCC, -5px 0 5px #ccc;
 	position: relative;
+	-moz-min-width: 360px;
+	-ms-min-width: 360px;
+	-o-min-width: 360px;
+	-webkit-min-width: 360px;
 	min-width: 360px;
 }
 
@@ -175,6 +185,7 @@ footer {
 
 header {
 	text-align: center;
+	margin-bottom: 20px;
 }
 header img {
 	margin: 5px auto;
@@ -227,7 +238,7 @@ table {
 
 table {
 
-	width: 100%;
+	width: calc(100% - 40px);
 }
 
 thead {
@@ -267,15 +278,17 @@ ul.badges li em {
 .profile hr {
 	margin-left: -20px;
 	margin-right: -20px;
-	border-top: 1px solid #261E24;
-	box-shadow: 0 1px 1px #342940;
+	border-top: 1px solid #DDD;
+	-webkit-box-shadow: 0 1px 1px #D9D0D6;
+	-ms-box-shadow: 0 1px 1px #D9D0D6;
+	box-shadow: 0 1px 1px #D9D0D6;
 }
 
 #reportShape{
 	display: block;
 	width: 100%;
 	border: 2px solid #73686f;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
 dt,dd{float: left; width: 50%;}
