@@ -45,6 +45,10 @@
     <Reference Include="NanoIoC">
       <HintPath>..\..\lib\NanoIoC\bin-net40\NanoIoC.dll</HintPath>
     </Reference>
+    <Reference Include="Raven.Client.Lightweight, Version=3.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Raven\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -271,6 +275,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Reports.js" />
     <Content Include="Scripts\site\badges.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />

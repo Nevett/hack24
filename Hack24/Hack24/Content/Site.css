@@ -190,3 +190,14 @@ table {
 	margin: 20px;
 	width: calc(100% - 40px);
 }
+
+.profile {
+	margin: 20px;
+	width: calc(100% - 40px);
+}
+
+#reportShape {
+	width: 100%;
+	border: 2px solid #73686f;
+	margin-bottom: 20px;
+}
