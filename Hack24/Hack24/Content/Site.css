@@ -292,3 +292,12 @@ ul.badges li em {
 }
 
 dt,dd{float: left; width: 50%;}
+
+
+.subtitle {
+	text-align: center;
+	font-size: 12px;
+	font-style: italic;
+	color: #261e24;
+	margin-top: -10px;
+}
