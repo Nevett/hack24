@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>Job Statisfaction - @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/base")
@@ -19,7 +19,7 @@
 <body>
 	<div class="row">
 		<header>
-			<img src="~/Assets/Images/logo.png"/>
+			<a href="/"><img src="~/Assets/Images/logo.png" /></a>
 			<hr/>
 			@if (user == null)
 			{
@@ -31,7 +31,7 @@
 				<span class="login-status">Hi, <strong><a href="/account/profile/@user.Id">@user.Forename</a></strong></span>
 				
 				<a href="/account/logout" class="tiny button">Log out</a>
-				<a href="/leaderboard" class="tiny button">Leader Board</a>
+				<a href="/leaderboard" class="tiny button">Leaderboard</a>
 				<a href="/questionnaire" class="tiny button">Rate!</a>
 
 			}

@@ -1,9 +1,17 @@
-﻿@using NanoIoC
+﻿@using Hack24.Core.Entities
+@using Hack24.Core.Repositories
+@using NanoIoC
 @model dynamic
 
 @{
-	ViewBag.Title = "Popup Pi-Rate";
+	ViewBag.Title = "Home";
 	var user = this.User();
+	User manager = null;
+	if (user != null)
+	{
+		// sorry
+		manager = Container.Global.Resolve<IUserRepository>().Get(user.ManagerId);
+	}
 }
 
 @if (user == null)
@@ -24,7 +32,7 @@ else
 	}
 	else
 	{
-		<h1>Go rate your manager @user.ManagerId!</h1>
+		<h1>Go rate your manager @manager.Forename</h1>
 		<a class="rate button large" href="/questionnaire">Rate</a>
 	}
 }

@@ -97,10 +97,16 @@ header > .button {
 	height: 240px;
 	text-align: center;
 	margin-bottom: 20px;
-	background-color: #fff;
+	background-color: #f3f3f3;
 	-webkit-box-shadow: 3px 3px 5px #888;
 	-ms-box-shadow: 3px 3px 5px #888;
 	box-shadow: 3px 3px 5px #888;
+	box-sizing: border-box;
+}
+
+.answer:hover {
+	border: 1px solid #d5becd;
+	background-color: #fff;
 }
 
 .imgBox {
@@ -147,6 +153,10 @@ h1 {
 	-ms-box-shadow: 5px 0 5px #CCC, -5px 0 5px #ccc;
 	box-shadow: 5px 0 5px #CCC, -5px 0 5px #ccc;
 	position: relative;
+	-moz-min-width: 360px;
+	-ms-min-width: 360px;
+	-o-min-width: 360px;
+	-webkit-min-width: 360px;
 	min-width: 360px;
 }
 
@@ -175,6 +185,7 @@ footer {
 
 header {
 	text-align: center;
+	margin-bottom: 20px;
 }
 header img {
 	margin: 5px auto;
@@ -187,6 +198,11 @@ header hr {
 
 header a {
 	color: white;
+}
+
+table {
+	margin: 20px;
+	width: calc(100% - 40px);
 }
 
 .badgeAlert {
@@ -222,7 +238,7 @@ header a {
 
 table {
 
-	width: 100%;
+	width: calc(100% - 40px);
 }
 
 thead {
@@ -235,37 +251,53 @@ td.number {
 
 
 ul.badges {
-	
-}
-
-ul.badges li {
-
 	list-style: none;
 	display: block;
 	padding: 0px;
-	margin: 0px;
 	text-align: center;
 	float: left;
 }
 
 ul.badges li em {
-
-
 	float: left;
 	
 	display: block;
 	border-radius: 16px;
 	background-color: #e5c305;
-	width: 16px;
 	height: 16px;
 	padding: 10px;
 	margin: 3px 5px 10px 15px;
 
 }
 
-dl {
+.profile {
+	width: calc(100% - 40px);
+	margin-left: 20px;
+}
+
+.profile hr {
+	margin-left: -20px;
+	margin-right: -20px;
+	border-top: 1px solid #DDD;
+	-webkit-box-shadow: 0 1px 1px #D9D0D6;
+	-ms-box-shadow: 0 1px 1px #D9D0D6;
+	box-shadow: 0 1px 1px #D9D0D6;
+}
+
+#reportShape{
 	display: block;
 	width: 100%;
+	border: 2px solid #73686f;
+	margin-bottom: 40px;
 }
 
 dt,dd{float: left; width: 50%;}
+
+
+.subtitle {
+	text-align: center;
+	font-size: 12px;
+	font-style: italic;
+	color: #261e24;
+	margin-top: -10px;
+}
