@@ -61,11 +61,16 @@ textarea {
 
 header {
 	background-color: #261E24;
-	height: 33px;
+	height: 60px;
 	color: #fff;
 	-webkit-box-shadow: 0px 2px 5px #888;
 	-ms-box-shadow: 0px 2px 5px #888;
 	box-shadow: 0px 2px 5px #888;
+}
+header > h1 {
+	font-size: 14px;
+	color: #FFF !important;
+	font-style: italic;
 }
 
 header > span {
@@ -76,6 +81,7 @@ header > span {
 
 header > .button {
 	float: right;
+	margin-left: 3px;
 }
 
 .question {
