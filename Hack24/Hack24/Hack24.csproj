@@ -131,6 +131,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Assets\Images\logo.png" />
     <Content Include="Assets\Images\noise.png" />
     <Content Include="Assets\Images\Questions\applejack.png" />
     <Content Include="Assets\Images\Questions\canteven.jpg" />
